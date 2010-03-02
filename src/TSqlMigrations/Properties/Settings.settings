@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TSqlMigrations.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerConnection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">initial catalog=localhost; integrated security=true</Value>
+    </Setting>
+    <Setting Name="FileCreateDatabase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database.sql</Value>
+    </Setting>
+    <Setting Name="LookupTables" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SchemasToIgnore" Type="System.Collections.Specialized.StringCollection" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FileCreateMethods" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DatabaseMethods.sql</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
