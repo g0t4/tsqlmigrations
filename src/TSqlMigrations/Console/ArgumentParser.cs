@@ -19,7 +19,7 @@
 		private const string OptionRunScript = "rs";
 		private const string OptionBackup = "bak";
 		private const string OptionRestore = "rbak";
-
+		private const string OptionGenerateUpdate = "gup";
 
 		private GnuParser _Parser;
 
@@ -85,7 +85,10 @@
 			                  	.WithLongOpt("restore")
 			                  	.HasArg()
 			                  	.Create(OptionRestore));
-
+			options.AddOption(OptionBuilder.Factory
+								.WithLongOpt("generateUpdate")
+								.HasArg()
+								.Create(OptionGenerateUpdate));
 			_Line = _Parser.Parse(options, arguments);
 		}
 
@@ -212,6 +215,16 @@
 		public string RestoreFile
 		{
 			get { return GetOptionValue(OptionRestore, 0); }
+		}
+
+		public bool GenerateUpdate
+		{
+			get { return _Line.HasOption(OptionGenerateUpdate); }
+		}
+
+		public string GenerateUpdateCompareDatabase
+		{
+			get { return GetOptionValue(OptionGenerateUpdate, 0); }
 		}
 	}
 }

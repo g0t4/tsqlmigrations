@@ -46,6 +46,29 @@ namespace TSqlMigrations.Core
 			}
 		}
 
+		public static string GetNextUpdateFile()
+		{
+			var updateDirectory = GetUpdateDirectory();
+			var lastScript = GetUpdateScripts().OrderByDescending(s => s.Version).FirstOrDefault();
+
+			var major = 0;
+			var minor = 0;
+			var point = 10;
+			if (lastScript != null)
+			{
+				major = lastScript.Version.Major;
+				minor = lastScript.Version.Minor;
+				point = lastScript.Version.Point + 10;
+			}
+			var updateFile = string.Format("{0}.{1}.{2}.sql", major, minor, point);
+			return Path.Combine(updateDirectory, updateFile);
+		}
+
+		public static string GetUpdateDirectory()
+		{
+			return GetDirectory(DirectoryScriptUpdates);
+		}
+
 		public static string GetDirectory(string subDirectory)
 		{
 			if (string.IsNullOrEmpty(subDirectory))
@@ -71,12 +94,19 @@ namespace TSqlMigrations.Core
 			return Path.Combine(DirectoryBase, fileName);
 		}
 
+
+		public static List<UpdateScript> GetUpdateScripts()
+		{
+			EnsureDirectoryExists(GetUpdateDirectory());
+			var info = new DirectoryInfo(GetUpdateDirectory());
+			return
+				info.GetFiles("*.sql").Select(f => new UpdateScript(f)).OrderBy(s => s.Version).ToList();
+		}
+
 		public static List<UpdateScript> GetUpdateScripts(SchemaVersion version)
 		{
-			var info = new DirectoryInfo(Path.Combine(DirectoryBase, DirectoryScriptUpdates));
-			return
-				info.GetFiles("*.sql").Select(f => new UpdateScript(f)).OrderBy(s => s.Version).Where(s => s.Version > version).
-					ToList();
+			return GetUpdateScripts().Where(s => s.Version > version).
+				ToList();
 		}
 
 		public static string GetFileCreateMethods()

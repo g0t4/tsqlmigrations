@@ -32,20 +32,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DBDiff.Schema">
+      <HintPath>..\..\lib\DBDiff\DBDiff.Schema.dll</HintPath>
+    </Reference>
+    <Reference Include="DBDiff.Schema.SQLServer">
+      <HintPath>..\..\lib\DBDiff\DBDiff.Schema.SQLServer.dll</HintPath>
+    </Reference>
     <Reference Include="dotnetcli-0.1.1">
       <HintPath>..\..\lib\dotnetcli\dotnetcli-0.1.1.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Contracts">
       <HintPath>..\..\lib\Microsoft.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -69,6 +77,7 @@
     <Compile Include="Core\MigrationsServer.cs" />
     <Compile Include="Core\MigrationsService.cs" />
     <Compile Include="Core\TransactionManager.cs" />
+    <Compile Include="Diff\MigrationsDiff.cs" />
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="IUpdateScript.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +96,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

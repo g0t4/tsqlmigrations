@@ -105,6 +105,10 @@
 			{
 				MigrationsService.RestoreDatabase(parser.RestoreFile);
 			}
+			if(parser.GenerateUpdate)
+			{
+				MigrationsService.GenerateUpdate(parser.GenerateUpdateCompareDatabase);
+			}
 		}
 	}
 }

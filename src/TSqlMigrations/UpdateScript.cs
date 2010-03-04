@@ -1,7 +1,6 @@
 ﻿namespace TSqlMigrations
 {
 	using System;
-	using System.Diagnostics.Contracts;
 	using System.IO;
 	using Core;
 
@@ -12,7 +11,10 @@
 
 		public UpdateScript(FileInfo file)
 		{
-			Contract.Requires<ArgumentNullException>(file.Name != null, "File must not be null.");
+			if (file.Name == null)
+			{
+				throw new ArgumentNullException("File must not be null.");
+			}
 
 			UpdateFile = file;
 

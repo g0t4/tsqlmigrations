@@ -2,6 +2,7 @@
 {
 	using System;
 	using System.Linq;
+	using Diff;
 
 	public class MigrationsService : IMigrationsService
 	{
@@ -92,6 +93,12 @@
 		public void SetDirectoryBase(string value)
 		{
 			DirectoryManager.DirectoryBase = value;
+		}
+
+		public void GenerateUpdate(string generateUpdateCompareDatabase)
+		{
+			var diff = new MigrationsDiff(_migrationsServer, generateUpdateCompareDatabase);
+			diff.GenerateUpdateFile();
 		}
 
 		public SchemaVersion GetVersion()

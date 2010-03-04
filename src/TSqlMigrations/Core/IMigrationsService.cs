@@ -18,5 +18,6 @@ namespace TSqlMigrations.Core
 		void BackupDatabase(string fileName);
 		void RestoreDatabase(string fileName);
 		void SetDirectoryBase(string value);
+		void GenerateUpdate(string generateUpdateCompareDatabase);
 	}
 }
