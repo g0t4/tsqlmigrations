@@ -109,6 +109,10 @@
 			{
 				MigrationsService.GenerateUpdate(parser.GenerateUpdateCompareDatabase);
 			}
+			if (parser.MarkSchemaChangesWithLatestVersion)
+			{
+				MigrationsService.MarkSchemaChangesWithLatestVersion();
+			}
 		}
 	}
 }

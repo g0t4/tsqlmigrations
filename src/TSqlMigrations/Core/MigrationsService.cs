@@ -101,6 +101,13 @@
 			diff.GenerateUpdateFile();
 		}
 
+		public void MarkSchemaChangesWithLatestVersion()
+		{
+			var currentVersion = _migrationsServer.Database.Version;
+			var updates = DirectoryManager.GetUpdateScripts(currentVersion);
+			updates.ForEach(u => _migrationsServer.Database.UpdateSchemaChangesTable(u.Version, u.UpdateFile.Name));
+		}
+
 		public SchemaVersion GetVersion()
 		{
 			return _migrationsServer.Database.Version;

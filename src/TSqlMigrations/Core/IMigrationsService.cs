@@ -19,5 +19,6 @@ namespace TSqlMigrations.Core
 		void RestoreDatabase(string fileName);
 		void SetDirectoryBase(string value);
 		void GenerateUpdate(string generateUpdateCompareDatabase);
+		void MarkSchemaChangesWithLatestVersion();
 	}
 }

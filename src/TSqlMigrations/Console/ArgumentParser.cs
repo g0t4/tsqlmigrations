@@ -20,6 +20,7 @@
 		private const string OptionBackup = "bak";
 		private const string OptionRestore = "rbak";
 		private const string OptionGenerateUpdate = "gup";
+		private const string OptionMarkSchemaChangesWithLatestVersion = "mark";
 
 		private GnuParser _Parser;
 
@@ -89,6 +90,9 @@
 								.WithLongOpt("generateUpdate")
 								.HasArg()
 								.Create(OptionGenerateUpdate));
+			options.AddOption(OptionBuilder.Factory
+								.WithLongOpt("markSchemaChangesWithLatestVersion")
+								.Create(OptionMarkSchemaChangesWithLatestVersion));
 			_Line = _Parser.Parse(options, arguments);
 		}
 
@@ -225,6 +229,11 @@
 		public string GenerateUpdateCompareDatabase
 		{
 			get { return GetOptionValue(OptionGenerateUpdate, 0); }
+		}
+
+		public bool MarkSchemaChangesWithLatestVersion
+		{
+			get { return _Line.HasOption(OptionMarkSchemaChangesWithLatestVersion); }
 		}
 	}
 }

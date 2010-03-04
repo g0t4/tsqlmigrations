@@ -162,8 +162,9 @@ namespace TSqlMigrations.Core
 			}
 		}
 
-		private void UpdateSchemaChangesTable(SchemaVersion version, string name)
+		public void UpdateSchemaChangesTable(SchemaVersion version, string name)
 		{
+			Console.WriteLine("Adding version {0} {1} to schema changes table", version, name);
 			// Todo error handling here? Create schema table if it no exists?
 			var command =
 				new SqlCommand(
