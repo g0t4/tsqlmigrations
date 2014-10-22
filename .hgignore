@@ -1,5 +1,0 @@
-glob:*.user
-glob:*\bin\*
-glob:*\obj
-glob:*\_ReSharper*\
-glob:*.suo
