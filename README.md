@@ -28,7 +28,7 @@ Yet another migrations platform right? This is purely sql based (tsql as it is o
 	* Script out Northwind lookup data
 	* Script out Northwind
 
-More features to come in the future, including possible integration with Open DBDiff or the spin off Sql-DBDiff.
+More features to come in the future, including possible integration with [Open DBDiff](https://opendbiff.codeplex.com/) or the spin off [Sql-DBDiff](https://code.google.com/p/sql-dbdiff/).
 
 ## History
 
